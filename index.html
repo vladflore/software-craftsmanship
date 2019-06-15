@@ -4,7 +4,7 @@
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
-		<title>reveal.js</title>
+		<title>Software Craftsmanship</title>
 
 		<link rel="stylesheet" href="css/reset.css">
 		<link rel="stylesheet" href="css/reveal.css">
@@ -25,8 +25,23 @@
 	<body>
 		<div class="reveal">
 			<div class="slides">
-				<section>Slide 1</section>
-				<section>Slide 2</section>
+				<section>
+					<h2>Software Craftsmanship</h2>
+					<br>
+					<blockquote cite="Refactoring - improving the design of existing code, Martin Fowler">
+						&ldquo;Any fool can write code that a computer can understand. Good programmers write code that humans can understand.&rdquo;
+					</blockquote>
+				</section>
+				<section></section>
+				<section></section>
+				<section></section>
+				<section></section>
+				<section></section>
+				<section></section>
+				<section></section>
+				<section></section>
+				<section></section>
+				<section></section>
 			</div>
 		</div>
 
@@ -37,13 +52,19 @@
 			// - https://github.com/hakimel/reveal.js#configuration
 			// - https://github.com/hakimel/reveal.js#dependencies
 			Reveal.initialize({
+				hash: true,
+				mouseWheel: true,
 				dependencies: [
 					{ src: 'plugin/markdown/marked.js' },
 					{ src: 'plugin/markdown/markdown.js' },
-					{ src: 'plugin/notes/notes.js', async: true },
-					{ src: 'plugin/highlight/highlight.js', async: true }
+					{ src: 'plugin/highlight/highlight.js', async: true },
+					{ src: 'plugin/zoom-js/zoom.js', async: true },
+					{ src: 'plugin/notes/notes.js', async: true }
 				]
 			});
+			Reveal.configure({ slideNumber: 'c/t' });
+			Reveal.configure({ transition: 'fade' });
+
 		</script>
 	</body>
 </html>
