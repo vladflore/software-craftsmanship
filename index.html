@@ -8,12 +8,21 @@
 
 		<link rel="stylesheet" href="css/reset.css">
 		<link rel="stylesheet" href="css/reveal.css">
-		<link rel="stylesheet" href="css/theme/black.css">
+		<link rel="stylesheet" href="css/theme/moon.css">
 
 		<!-- Theme used for syntax highlighting of code -->
 		<link rel="stylesheet" href="lib/css/monokai.css">
 
-		<!-- Printing and PDF exports -->
+		<style>
+			.twocolumn {
+				display: grid;
+				grid-template-columns: 1fr 1fr;
+				grid-gap: 10px;
+				text-align: left;
+			}
+		</style>
+
+        <!-- Printing and PDF exports -->
 		<script>
 			var link = document.createElement( 'link' );
 			link.rel = 'stylesheet';
@@ -32,8 +41,112 @@
 						&ldquo;Any fool can write code that a computer can understand. Good programmers write code that humans can understand.&rdquo;
 					</blockquote>
 				</section>
-				<section></section>
-				<section></section>
+				<section>
+					<p style="font-size: 50px; display: block; text-align: left;">craft (n.)</p>
+					<p>
+						<ul>
+							<li>an activity involving skill in making things by hand</li>
+							<li>skill used in deceiving others <span style='font-size:50px;'>&#128561;</span></li>
+						</ul>
+					</p>
+				</section>
+				<section>
+					<q cite="https://en.wikipedia.org/wiki/Software_craftsmanship">
+						Software craftsmanship is an approach to software development that emphasizes the coding skills of the software developers. It is a response by software developers to the perceived ills of the mainstream software industry, including the prioritization of financial concerns over developer accountability.
+					</q>
+				</section>
+				<section>
+					<section>
+						<h3>How it all came to be</h3>
+						<p style="font-size: 25px;">...the short version</p>
+					</section>
+					<section>
+						<p style="display: block; text-align: left;">
+							In 1992, Jack W. Reeves' essay <span style="font-style: italic;">What Is Software Design?</span> suggested that <span style="color: darkred;">software development is more a craft than an engineering discipline</span>.
+						</p>
+					</section>
+					<section>
+						<p style="display: block; text-align: left;">
+							In 1999, <span style="font-style: italic;">The Pragmatic Programmer</span> was published. Its sub-title, <span style="font-style: italic;">From Journeyman to Master</span>, suggested that <span style="color: darkred;">programmers go through stages in their professional development</span> akin to the medieval guild traditions of Europe.
+						</p>
+					</section>
+					<section>
+						<p style="display: block; text-align: left;">
+							In 2008, a number of aspiring software craftsmen met in Libertyville, Illinois, with the intent of establishing a set of principles for software craftsmanship. <span style="font-style: italic;">Manifesto for Software Craftsmanship</span> came to life.
+						</p>
+					</section>
+					<section data-background-iframe="http://manifesto.softwarecraftsmanship.org/" data-background-interactive>
+						<div style="position: absolute; width: 40%; right: 0; box-shadow: 0 1px 4px rgba(0,0,0,0.5), 0 5px 25px rgba(0,0,0,0.2); background-color: rgba(0, 0, 0, 0.9); color: #fff; padding: 20px; font-size: 20px; text-align: left;">
+							<h3>Agile Manifesto</h3>
+						</div>
+					</section>
+					<section>
+						<p style="display: block; text-align: left;">Over the next two years software companies, rival software companies, took part in a <span style="color: darkred;">Craftsmanship Swap</span>.</p>
+						<p style="font-size: 25px;display: block; text-align: left;">By learning from each other we are going to make each other stronger. By making each other stronger, we are making our companies more competitive. In our conversations about this partnership we acknowledged that we do compete with each other, but more often we are in competition against people and companies that do not share our values. </p>
+					</section>
+					<section>
+						<p style="display: block; text-align: left;">
+							In March, 2014, <span style="font-style: italic;">Software Craftsmanship : Professionalism Pragmatism Pride</span> was published by Sandro Mancuso.
+						</p>
+						<p style="display: block; text-align: left;font-size: 25px;">
+							<q cite="https://codurance.com/2014/03/03/craftsmanship-book-released/">Proposing a very different mindset for developers and companies, a strong set of technical disciplines and practices, mostly based on Extreme Programming, and with a great alignment with Agile methodologies, Software Craftsmanship promises to take our industry to the next level, promoting professionalism, technical excellence, <span style="color: darkred;">the death of the production line and factory workers attitude</span>.</q>
+						</p>
+					</section>
+				</section>
+				<section>
+					<h2>Agile Software Development</h2>
+					<p style="font-size: 25px;">
+						is an approach to software development under which requirements and solutions evolve through the collaborative effort of self-organizing and cross-functional teams and their customer(s)/end user(s).
+					</p>
+					<section>
+						<br>
+						<h2>values</h2>
+						<ul style="font-size: 25px;">
+							<li><span style="color: darkred;">Individuals and Interactions</span> over processes and tools</li>
+							<li><span style="color: darkred;">Working Software</span> over comprehensive documentation</li>
+							<li><span style="color: darkred;">Customer Collaboration</span> over contract negotiation</li>
+							<li><span style="color: darkred;">Responding to Change </span>over following a plan</li>
+						</ul>
+					</section>
+					<section>
+						<br>
+						<br>
+						<br>
+						<br>
+						<h2>principles</h2>
+						<div class="twocolumn">
+							<div>
+								<ul style="font-size: 18px;">
+									<li>Customer satisfaction by early and <span style="color: darkred;">continuous delivery</span> of valuable software.</li>
+									<li>Welcome <span style="color: darkred;">changing requirements</span>, even in late development.</li>
+									<li><span style="color: darkred;">Deliver</span> working software <span style="color: darkred;">frequently</span> (weeks rather than months)</li>
+									<li>Close, <span style="color: darkred;">daily cooperation</span> between business people and developers</li>
+									<li>Projects are built around <span style="color: darkred;">motivated individuals</span>, who should be trusted</li>
+									<li><span style="color: darkred;">Face-to-face conversation</span> is the best form of communication (co-location)</li>
+								</ul>
+							</div>
+							<div>
+								<ul style="font-size: 18px;">
+									<li><span style="color: darkred;">Working software</span> is the primary measure of progress</li>
+									<li><span style="color: darkred;">Sustainable development</span>, able to maintain a constant pace</li>
+									<li>Continuous attention to <span style="color: darkred;">technical excellence</span> and <span style="color: darkred;">good design</span></li>
+									<li><span style="color: darkred;">Simplicity</span>—the art of maximizing the amount of work not done—is essential</li>
+									<li>Best architectures, requirements, and designs emerge from <span style="color: darkred;">self-organizing teams</span></li>
+									<li>Regularly, <span style="color: darkred;">the team reflects</span> on how to become more effective, and <span style="color: darkred;">adjusts</span> accordingly</li>
+								</ul>
+							</div>
+						</div>
+						<br>
+					</section>
+				</section>
+
+				<section>
+					<div class="twocolumn">
+						<div>...based on a true story</div>
+						<div>...unfortunately</div>
+					</div>
+				</section>
+
 				<section></section>
 				<section></section>
 				<section></section>
@@ -63,7 +176,7 @@
 				]
 			});
 			Reveal.configure({ slideNumber: 'c/t' });
-			Reveal.configure({ transition: 'fade' });
+			Reveal.configure({ transition: 'slide' });
 
 		</script>
 	</body>
