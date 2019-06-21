@@ -2,444 +2,534 @@
 <html>
 
 <head>
-	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
-	<title>Software Craftsmanship</title>
+    <title>Software Craftsmanship</title>
 
-	<link rel="stylesheet" href="css/reset.css">
-	<link rel="stylesheet" href="css/reveal.css">
-	<link rel="stylesheet" href="css/theme/moon.css">
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/reveal.css">
+    <link rel="stylesheet" href="css/theme/moon.css">
 
-	<!-- Theme used for syntax highlighting of code -->
-	<link rel="stylesheet" href="lib/css/monokai.css">
+    <!-- Theme used for syntax highlighting of code -->
+    <link rel="stylesheet" href="lib/css/monokai.css">
 
-	<style>
-		.twocolumn {
-			display: grid;
-			grid-template-columns: 1fr 1fr;
-			grid-gap: 10px;
-			text-align: left;
-		}
-	</style>
+    <style>
+        .twocolumn {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            grid-gap: 10px;
+            text-align: left;
+        }
+    </style>
 
-	<!-- Printing and PDF exports -->
-	<script>
-		var link = document.createElement('link');
-		link.rel = 'stylesheet';
-		link.type = 'text/css';
-		link.href = window.location.search.match(/print-pdf/gi) ? 'css/print/pdf.css' : 'css/print/paper.css';
-		document.getElementsByTagName('head')[0].appendChild(link);
-	</script>
+    <!-- Printing and PDF exports -->
+    <script>
+        var link = document.createElement('link');
+        link.rel = 'stylesheet';
+        link.type = 'text/css';
+        link.href = window.location.search.match(/print-pdf/gi) ? 'css/print/pdf.css' : 'css/print/paper.css';
+        document.getElementsByTagName('head')[0].appendChild(link);
+    </script>
 </head>
 
 <body>
-	<div class="reveal">
-		<div class="slides">
-			<section>
-				<h2>Software Craftsmanship</h2>
-				<br>
-				<blockquote cite="Refactoring - improving the design of existing code, Martin Fowler">
-					&ldquo;Any fool can write code that a computer can understand. Good programmers write code that
-					humans can understand.&rdquo;
-				</blockquote>
-			</section>
-			<section>
-				<p style="font-size: 50px; display: block; text-align: left;">craft (n.)</p>
-				<p>
-					<ul>
-						<li>an activity involving skill in making things by hand</li>
-						<li>skill used in deceiving others <span style='font-size:50px;'>&#128561;</span></li>
-					</ul>
-				</p>
-			</section>
-			<section>
-				<q cite="https://en.wikipedia.org/wiki/Software_craftsmanship">
-					Software craftsmanship is an approach to software development that emphasizes the coding skills of
-					the software developers. It is a response by software developers to the perceived ills of the
-					mainstream software industry, including the prioritization of financial concerns over developer
-					accountability.
-				</q>
-			</section>
-			<section>
-				<section>
-					<h3>How it all came to be</h3>
-					<p style="font-size: 25px;">...the short version</p>
-				</section>
-				<section>
-					<p style="display: block; text-align: left;">
-						In 1992, Jack W. Reeves' essay <span style="font-style: italic;">What Is Software Design?</span>
-						suggested that <span style="color: #a9c23f;">software development is more a craft than an
+<div class="reveal">
+    <div class="slides">
+        <section>
+            <h2>Software Craftsmanship</h2>
+            <br>
+            <blockquote cite="Refactoring - improving the design of existing code, Martin Fowler">
+                &ldquo;Any fool can write code that a computer can understand. Good programmers write code that
+                humans can understand.&rdquo;
+            </blockquote>
+        </section>
+        <section>
+            <p style="font-size: 50px; display: block; text-align: left;">craft (n.)</p>
+            <p>
+            <ul>
+                <li>an activity involving skill in making things by hand</li>
+                <li>skill used in deceiving others <span style='font-size:50px;'>&#128561;</span></li>
+            </ul>
+            </p>
+        </section>
+        <section>
+            <q cite="https://en.wikipedia.org/wiki/Software_craftsmanship">
+                Software craftsmanship is an approach to software development that emphasizes the coding skills of
+                the software developers. It is a response by software developers to the perceived ills of the
+                mainstream software industry, including the prioritization of financial concerns over developer
+                accountability.
+            </q>
+        </section>
+        <section>
+            <section>
+                <h3>How it all came to be</h3>
+                <p style="font-size: 25px;">...the short version</p>
+            </section>
+            <section>
+                <p style="display: block; text-align: left;">
+                    In 1992, Jack W. Reeves' essay <span style="font-style: italic;">What Is Software Design?</span>
+                    suggested that <span style="color: #a9c23f;">software development is more a craft than an
 							engineering discipline</span>.
-					</p>
-				</section>
-				<section>
-					<p style="display: block; text-align: left;">
-						In 1999, <span style="font-style: italic;">The Pragmatic Programmer</span> was published. Its
-						sub-title, <span style="font-style: italic;">From Journeyman to Master</span>, suggested that
-						<span style="color: #a9c23f;">programmers go through stages in their professional
+                </p>
+            </section>
+            <section>
+                <p style="display: block; text-align: left;">
+                    In 1999, <span style="font-style: italic;">The Pragmatic Programmer</span> was published. Its
+                    sub-title, <span style="font-style: italic;">From Journeyman to Master</span>, suggested that
+                    <span style="color: #a9c23f;">programmers go through stages in their professional
 							development</span> akin to the medieval guild traditions of Europe.
-					</p>
-				</section>
-				<section>
-					<p style="display: block; text-align: left;">
-						In 2008, a number of aspiring software craftsmen met in Libertyville, Illinois, with the intent
-						of establishing a set of principles for software craftsmanship. <span
-							style="font-style: italic;">Manifesto for Software Craftsmanship</span> came to life.
-					</p>
-				</section>
-				<section data-background-iframe="http://manifesto.softwarecraftsmanship.org/"
-					data-background-interactive>
-					<div
-						style="position: absolute; width: 40%; right: 0; box-shadow: 0 1px 4px rgba(0,0,0,0.5), 0 5px 25px rgba(0,0,0,0.2); background-color: rgba(0, 0, 0, 0.9); color: #fff; padding: 20px; font-size: 20px; text-align: left;">
-						<h3>Agile Manifesto</h3>
-					</div>
-				</section>
-				<section>
-					<p style="display: block; text-align: left;">Over the next two years software companies, rival
-						software companies, took part in a <span style="color: #a9c23f;">Craftsmanship Swap</span>.</p>
-					<p style="font-size: 25px;display: block; text-align: left;">By learning from each other we are
-						going to make each other stronger. By making each other stronger, we are making our companies
-						more competitive. In our conversations about this partnership we acknowledged that we do compete
-						with each other, but more often we are in competition against people and companies that do not
-						share our values. </p>
-				</section>
-				<section>
-					<img src="./images/clean-code.jpg" alt="" style="border: 0px;">
-					<p>
-						Martin, Robert C. (2009). Clean Code: A Handbook of Agile Software Craftsmanship
-					</p>
-				</section>
-				<section>
-					<div class="twocolumn">
-						<div>
-							<img src="./images/sw-craftsmanship.jpg" alt="" style="border: 0px;">
-						</div>
-						<div>
-							<p style="display: block; text-align: left;">
-								In March, 2014, <span style="font-style: italic;">Software Craftsmanship :
+                </p>
+            </section>
+            <section>
+                <p style="display: block; text-align: left;">
+                    In 2008, a number of aspiring software craftsmen met in Libertyville, Illinois, with the intent
+                    of establishing a set of principles for software craftsmanship. <span
+                        style="font-style: italic;">Manifesto for Software Craftsmanship</span> came to life.
+                </p>
+            </section>
+            <section data-background-iframe="http://manifesto.softwarecraftsmanship.org/"
+                     data-background-interactive>
+                <div
+                        style="position: absolute; width: 40%; right: 0; box-shadow: 0 1px 4px rgba(0,0,0,0.5), 0 5px 25px rgba(0,0,0,0.2); background-color: rgba(0, 0, 0, 0.9); color: #fff; padding: 20px; font-size: 20px; text-align: left;">
+                    <h3>Agile Manifesto</h3>
+                </div>
+            </section>
+            <section>
+                <p style="display: block; text-align: left;">Over the next two years software companies, rival
+                    software companies, took part in a <span style="color: #a9c23f;">Craftsmanship Swap</span>.</p>
+                <p style="font-size: 25px;display: block; text-align: left;">By learning from each other we are
+                    going to make each other stronger. By making each other stronger, we are making our companies
+                    more competitive. In our conversations about this partnership we acknowledged that we do compete
+                    with each other, but more often we are in competition against people and companies that do not
+                    share our values. </p>
+            </section>
+            <section>
+                <img src="./images/clean-code.jpg" alt="" style="border: 0px;">
+                <p>
+                    Martin, Robert C. (2009). Clean Code: A Handbook of Agile Software Craftsmanship
+                </p>
+            </section>
+            <section>
+                <div class="twocolumn">
+                    <div>
+                        <img src="./images/sw-craftsmanship.jpg" alt="" style="border: 0px;">
+                    </div>
+                    <div>
+                        <p style="display: block; text-align: left;">
+                            In March, 2014, <span style="font-style: italic;">Software Craftsmanship :
 									Professionalism Pragmatism Pride</span> was published by Sandro Mancuso.
-							</p>
-							<p style="display: block; text-align: left;font-size: 25px;">
-								<q cite="https://codurance.com/2014/03/03/craftsmanship-book-released/">Proposing a very
-									different mindset for developers and companies, a strong set of technical
-									disciplines and practices, mostly based on Extreme Programming, and with a great
-									alignment with Agile methodologies, Software Craftsmanship promises to take our
-									industry to the next level, promoting professionalism, technical excellence, <span
-										style="color: #a9c23f;">the death of the production line and factory workers
+                        </p>
+                        <p style="display: block; text-align: left;font-size: 25px;">
+                            <q cite="https://codurance.com/2014/03/03/craftsmanship-book-released/">Proposing a very
+                                different mindset for developers and companies, a strong set of technical
+                                disciplines and practices, mostly based on Extreme Programming, and with a great
+                                alignment with Agile methodologies, Software Craftsmanship promises to take our
+                                industry to the next level, promoting professionalism, technical excellence, <span
+                                        style="color: #a9c23f;">the death of the production line and factory workers
 										attitude</span>.</q>
-							</p>
-						</div>
-					</div>
-				</section>
-			</section>
-			<section>
-				<h2>Agile Software Development</h2>
-				<p style="font-size: 25px;">
-					is an approach to software development under which requirements and solutions evolve through the
-					collaborative effort of self-organizing and cross-functional teams and their customer(s)/end
-					user(s).
-				</p>
-				<section>
-					<br>
-					<h2>values</h2>
-					<ul style="font-size: 25px;">
-						<li><span style="color: #a9c23f;">Individuals and Interactions</span> over processes and tools
-						</li>
-						<li><span style="color: #a9c23f;">Working Software</span> over comprehensive documentation</li>
-						<li><span style="color: #a9c23f;">Customer Collaboration</span> over contract negotiation</li>
-						<li><span style="color: #a9c23f;">Responding to Change </span>over following a plan</li>
-					</ul>
-				</section>
-				<section>
-					<br>
-					<br>
-					<br>
-					<br>
-					<h2>principles</h2>
-					<div class="twocolumn">
-						<div>
-							<ul style="font-size: 18px;">
-								<li>Customer satisfaction by early and <span style="color: #a9c23f;">continuous
-										delivery</span> of valuable software.</li>
-								<li>Welcome <span style="color: #a9c23f;">changing requirements</span>, even in late
-									development.</li>
-								<li><span style="color: #a9c23f;">Deliver</span> working software <span
-										style="color: #a9c23f;">frequently</span> (weeks rather than months)</li>
-								<li>Close, <span style="color: #a9c23f;">daily cooperation</span> between business
-									people and developers</li>
-								<li>Projects are built around <span style="color: #a9c23f;">motivated
-										individuals</span>, who should be trusted</li>
-								<li><span style="color: #a9c23f;">Face-to-face conversation</span> is the best form of
-									communication (co-location)</li>
-							</ul>
-						</div>
-						<div>
-							<ul style="font-size: 18px;">
-								<li><span style="color: #a9c23f;">Working software</span> is the primary measure of
-									progress</li>
-								<li><span style="color: #a9c23f;">Sustainable development</span>, able to maintain a
-									constant pace</li>
-								<li>Continuous attention to <span style="color: #a9c23f;">technical excellence</span>
-									and <span style="color: #a9c23f;">good design</span></li>
-								<li><span style="color: #a9c23f;">Simplicity</span>—the art of maximizing the amount of
-									work not done—is essential</li>
-								<li>Best architectures, requirements, and designs emerge from <span
-										style="color: #a9c23f;">self-organizing teams</span></li>
-								<li>Regularly, <span style="color: #a9c23f;">the team reflects</span> on how to become
-									more effective, and <span style="color: #a9c23f;">adjusts</span> accordingly</li>
-							</ul>
-						</div>
-					</div>
-					<br>
-				</section>
-			</section>
-			<section>
-				<h3>We are agile &#10069;<span class="fragment fade-in-then-semi-out">&#10068;</span></h3>
-				<p class="fragment" style="font-size: 18px;">At a surface level, things are looking very good...</p>
-				<p class="fragment" style="font-size: 18px;">but underneath it...</p>
-				<ul style="font-size: 20px;">
-					<li class="fragment">daily failure...as in stand-up failure ;)</li>
-					<li class="fragment">estimating in time, not in story points</li>
-					<li class="fragment">converting a story point into a unit of time</li>
-					<li class="fragment">definition of ready...if it is not ready, then the developer did not think it
-						through</li>
-					<li class="fragment">definition of done is ignored</li>
-					<li class="fragment">story ping-pong between development and business (product owners)</li>
-					<li class="fragment">bus factor = 1</li>
-					<li class="fragment">skipping retrospective...multiple times in a row</li>
-					<li class="fragment">code reviews have more to do with the grammatical correctness of the comments
-						than with code and how to keep it clean</li>
-					<li class="fragment">development testing becomes a second class citizen</li>
-					<li class="fragment">abusing the fact that theory and praxis are not / cannot be always the same
-					</li>
-					<li class="fragment">delivering value becomes a cumbersome process</li>
-					<li class="fragment">management breathing down your neck and "suggesting" to cut down on quality
-						assurance work (tests, reviews etc.)</li>
-					<li class="fragment">low or non-existing team cohesion </li>
-					<li class="fragment"><span class="fragment highlight-red">faux agile</span></li>
-					<li class="fragment"><span class="fragment highlight-red">people do not leave projects/jobs, they
+                        </p>
+                    </div>
+                </div>
+            </section>
+        </section>
+        <section>
+            <h2>Agile Software Development</h2>
+            <p style="font-size: 25px;">
+                is an approach to software development under which requirements and solutions evolve through the
+                collaborative effort of self-organizing and cross-functional teams and their customer(s)/end
+                user(s).
+            </p>
+            <section>
+                <br>
+                <h2>values</h2>
+                <ul style="font-size: 25px;">
+                    <li><span style="color: #a9c23f;">Individuals and Interactions</span> over processes and tools
+                    </li>
+                    <li><span style="color: #a9c23f;">Working Software</span> over comprehensive documentation</li>
+                    <li><span style="color: #a9c23f;">Customer Collaboration</span> over contract negotiation</li>
+                    <li><span style="color: #a9c23f;">Responding to Change </span>over following a plan</li>
+                </ul>
+            </section>
+            <section>
+                <br>
+                <br>
+                <br>
+                <br>
+                <h2>principles</h2>
+                <div class="twocolumn">
+                    <div>
+                        <ul style="font-size: 18px;">
+                            <li>Customer satisfaction by early and <span style="color: #a9c23f;">continuous
+										delivery</span> of valuable software.
+                            </li>
+                            <li>Welcome <span style="color: #a9c23f;">changing requirements</span>, even in late
+                                development.
+                            </li>
+                            <li><span style="color: #a9c23f;">Deliver</span> working software <span
+                                    style="color: #a9c23f;">frequently</span> (weeks rather than months)
+                            </li>
+                            <li>Close, <span style="color: #a9c23f;">daily cooperation</span> between business
+                                people and developers
+                            </li>
+                            <li>Projects are built around <span style="color: #a9c23f;">motivated
+										individuals</span>, who should be trusted
+                            </li>
+                            <li><span style="color: #a9c23f;">Face-to-face conversation</span> is the best form of
+                                communication (co-location)
+                            </li>
+                        </ul>
+                    </div>
+                    <div>
+                        <ul style="font-size: 18px;">
+                            <li><span style="color: #a9c23f;">Working software</span> is the primary measure of
+                                progress
+                            </li>
+                            <li><span style="color: #a9c23f;">Sustainable development</span>, able to maintain a
+                                constant pace
+                            </li>
+                            <li>Continuous attention to <span style="color: #a9c23f;">technical excellence</span>
+                                and <span style="color: #a9c23f;">good design</span></li>
+                            <li><span style="color: #a9c23f;">Simplicity</span>—the art of maximizing the amount of
+                                work not done—is essential
+                            </li>
+                            <li>Best architectures, requirements, and designs emerge from <span
+                                    style="color: #a9c23f;">self-organizing teams</span></li>
+                            <li>Regularly, <span style="color: #a9c23f;">the team reflects</span> on how to become
+                                more effective, and <span style="color: #a9c23f;">adjusts</span> accordingly
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <br>
+            </section>
+        </section>
+        <section>
+            <h3>We are agile &#10069;<span class="fragment fade-in-then-semi-out">&#10068;</span></h3>
+            <p class="fragment" style="font-size: 18px;">At a surface level, things are looking very good...</p>
+            <p class="fragment" style="font-size: 18px;">but underneath it...</p>
+            <ul style="font-size: 20px;">
+                <li class="fragment">daily failure...as in stand-up failure ;)</li>
+                <li class="fragment">estimating in time, not in story points</li>
+                <li class="fragment">converting a story point into a unit of time</li>
+                <li class="fragment">definition of ready...if it is not ready, then the developer did not think it
+                    through
+                </li>
+                <li class="fragment">definition of done is ignored</li>
+                <li class="fragment">story ping-pong between development and business (product owners)</li>
+                <li class="fragment">bus factor = 1</li>
+                <li class="fragment">skipping retrospective...multiple times in a row</li>
+                <li class="fragment">code reviews have more to do with the grammatical correctness of the comments
+                    than with code and how to keep it clean
+                </li>
+                <li class="fragment">development testing becomes a second class citizen</li>
+                <li class="fragment">abusing the fact that theory and praxis are not / cannot be always the same
+                </li>
+                <li class="fragment">delivering value becomes a cumbersome process</li>
+                <li class="fragment">management breathing down your neck and "suggesting" to cut down on quality
+                    assurance work (tests, reviews etc.)
+                </li>
+                <li class="fragment">low or non-existing team cohesion</li>
+                <li class="fragment"><span class="fragment highlight-red">faux agile</span></li>
+                <li class="fragment"><span class="fragment highlight-red">people do not leave projects/jobs, they
 							leave toxic project/work cultures</span></li>
-					<li class="fragment"><span class="fragment highlight-green">this does not mean that we seak for an
+                <li class="fragment"><span class="fragment highlight-green">this does not mean that we seak for an
 							impractical purist Agile adherence</span></li>
-				</ul>
-			</section>
-			<section>
-				<h3>how to improve</h3>
-				<div class="twocolumn">
-					<div style="opacity: 0.5;">
-						<ul style="font-size: 15px;">
-							<li>daily failure...as in stand-up failure ;)</li>
-							<li>estimating in time, not in story points</li>
-							<li>converting a story point into a unit of time</li>
-							<li>definition of ready...if it is not ready, then the developer did not think it
-								through</li>
-							<li>definition of done is ignored</li>
-							<li>story ping-pong between development and business (product owners)</li>
-							<li>bus factor = 1</li>
-							<li>skipping retrospective...multiple times in a row</li>
-							<li>code reviews have more to do with the grammatical correctness of the comments
-								than with code and how to keep it clean</li>
-							<li>development testing becomes a second class citizen</li>
-							<li>abusing the fact that theory and praxis are not / cannot be always the same
-							</li>
-							<li>delivering value becomes a cumbersome process</li>
-							<li>management breathing down your neck and "suggesting" to cut down on quality assurance
-								work (tests, reviews etc.)</li>
-							<li>low or non-existing team cohesion </li>
-							<li><span class="highlight-red">faux agile</span></li>
-							<li><span class="highlight-red">people do not leave projects/jobs, they
+            </ul>
+        </section>
+        <section>
+            <h3>how to improve</h3>
+            <div class="twocolumn">
+                <div style="opacity: 0.5;">
+                    <ul style="font-size: 15px;">
+                        <li>daily failure...as in stand-up failure ;)</li>
+                        <li>estimating in time, not in story points</li>
+                        <li>converting a story point into a unit of time</li>
+                        <li>definition of ready...if it is not ready, then the developer did not think it
+                            through
+                        </li>
+                        <li>definition of done is ignored</li>
+                        <li>story ping-pong between development and business (product owners)</li>
+                        <li>bus factor = 1</li>
+                        <li>skipping retrospective...multiple times in a row</li>
+                        <li>code reviews have more to do with the grammatical correctness of the comments
+                            than with code and how to keep it clean
+                        </li>
+                        <li>development testing becomes a second class citizen</li>
+                        <li>abusing the fact that theory and praxis are not / cannot be always the same
+                        </li>
+                        <li>delivering value becomes a cumbersome process</li>
+                        <li>management breathing down your neck and "suggesting" to cut down on quality assurance
+                            work (tests, reviews etc.)
+                        </li>
+                        <li>low or non-existing team cohesion</li>
+                        <li><span class="highlight-red">faux agile</span></li>
+                        <li><span class="highlight-red">people do not leave projects/jobs, they
 									leave toxic project/work cultures</span></li>
-							<li><span class="highlight-green">this does not mean that we seek for an
+                        <li><span class="highlight-green">this does not mean that we seek for an
 									impractical purist Agile adherence</span></li>
-						</ul>
-					</div>
-					<div>
-						<ul style="font-size: 15px;">
-							<li class="fragment">sane and useful daily</li>
-							<li class="fragment">real story points estimation</li>
-							<li class="fragment">let a SP be a SP and estimate better / SPs should have a meaning!</li>
-							<li class="fragment">have a mature DOR then stick to it!</li><br>
-							<li class="fragment">have a mature DOD then stick to it!</li>
-							<li class="fragment">story accepted => increment</li>
-							<li class="fragment">bus factor = team size (code reviews, documentation, transparency)</li>
-							<li class="fragment">do not skip retro, how else could the team improve ?</li>
-							<li class="fragment">it is called <strong style="color: #a9c23f;">code</strong> review for a
-								reason, u get me?!</li><br>
-							<li class="fragment">write tests!</li>
-							<li class="fragment">responsible and healty flexibility</li><br>
-							<li class="fragment">make use of tools and processes that help delivering value faster</li>
-							<li class="fragment">have the guts to say no!...do it politely though and keep being
-								professional and respectful about yourself and your work</li>
-							<li class="fragment">high team cohesion </li>
-							<li class="fragment"><span class="fragment highlight-green">agile</span></li>
-							<li class="fragment"><span class="fragment highlight-green">people may still leave, but they
+                    </ul>
+                </div>
+                <div>
+                    <ul style="font-size: 15px;">
+                        <li class="fragment">sane and useful daily</li>
+                        <li class="fragment">real story points estimation</li>
+                        <li class="fragment">let a SP be a SP and estimate better / SPs should have a meaning!</li>
+                        <li class="fragment">have a mature DOR then stick to it!</li>
+                        <br>
+                        <li class="fragment">have a mature DOD then stick to it!</li>
+                        <li class="fragment">story accepted => increment</li>
+                        <li class="fragment">bus factor = team size (code reviews, documentation, transparency)</li>
+                        <li class="fragment">do not skip retro, how else could the team improve ?</li>
+                        <li class="fragment">it is called <strong style="color: #a9c23f;">code</strong> review for a
+                            reason, u get me?!
+                        </li>
+                        <br>
+                        <li class="fragment">write tests!</li>
+                        <li class="fragment">responsible and healty flexibility</li>
+                        <br>
+                        <li class="fragment">make use of tools and processes that help delivering value faster</li>
+                        <li class="fragment">have the guts to say no!...do it politely though and keep being
+                            professional and respectful about yourself and your work
+                        </li>
+                        <li class="fragment">high team cohesion</li>
+                        <li class="fragment"><span class="fragment highlight-green">agile</span></li>
+                        <li class="fragment"><span class="fragment highlight-green">people may still leave, but they
 									will have a feeling of sadeness while doing so</span></li>
-							<li class="fragment"><span class="fragment highlight-green">one step closer to a sane agile
+                        <li class="fragment"><span class="fragment highlight-green">one step closer to a sane agile
 									practice</span></li>
-						</ul>
-					</div>
-				</div>
+                    </ul>
+                </div>
+            </div>
 
-				<h3 class="fragment fade-up">we are agile &#10069;</h3>
-			</section>
-			<section>
-				<h3>clean code</h3>
-				<blockquote cite="Bjarne Stroustrup, inventor of C++ and author of The C++ Programming Language">
-					&ldquo;...elegant and efficient. The logic should be straightforward..., the dependencies
-					minimal...,error handling complete, performace close to optimal so as not to tempt people to make
-					the code messy with unprincipled optimizations.
-					Clean code does one thing well.&rdquo; - Bjarne Stroustrup
-				</blockquote>
-			</section>
-			<section>
-				<h3>clean code</h3>
-				<blockquote cite="Grady Booch, author of Object Oriented Analysis and Design with Applications">
-					&ldquo;Clean code is simple and direct. Clean code reads like well-written prose. Clean code never
-					obscures the designer's intent but rather is full of crisp abstractions and straightforward lines of
-					control.&rdquo; - Grady Booch
-				</blockquote>
-			</section>
-			<section>
-				<h3>clean code</h3>
-				<blockquote cite="'Big' Dave Thomas, founder of OTI, godfather of the Eclipse strategy">
-					&ldquo;Clean code can be read, and enhanced by a developer other than its original author. It has
-					unit and acceptance tests. It has meaningful names. It provides one way rather than many ways of
-					doing one thing. It has minimal dependencies...&rdquo; - "Big" Dave Thomas
-				</blockquote>
-			</section>
-			<section>
-				<h3>clean code</h3>
-				<blockquote cite="Michael Feathers, author of Working Effectively with Legacy Code">
-					&ldquo;...Clean code always looks like it was written by someone who cares. There is nothing obvious
-					that you can do to make it better...code someone left for you - code left by someone who cares
-					deaply about the craft.&rdquo; - Michael Feathers
-				</blockquote>
-			</section>
-			<section>
-				<h3>clean code</h3>
-				<blockquote cite="Ward Cunningham, inventor of Wiki, coinventor of eXtreme Programming...">
-					&ldquo;You know you are working on clean code when each routine you read turns out to be pretty much
-					what you expected. You can call it beautiful code when the code also makes it look like the language
-					was made for the problem.&rdquo; - Ward Cunningham
-				</blockquote>
-			</section>
-			<section>
-				<h3>clean code</h3>
-				<h5>The Boy Scout Rule</h5>
-				<p>
-					<blockquote>&ldquo;Leave the campground cleaner than when you found it.&rdquo;</blockquote>
-				</p>
-				<p>If we all checked-in our code a little cleaner than when we checked it out, the code simple could not
-					rot.</p>
-			</section>
-			<section>
-				<h3>Naming</h3>
-				<p style="font-size:18px;">the second hard thing in Computer Science</p>
-				<section>
-					<br><br>
-					<p style="font-size:25px; color: #a9c23f;">use intention-revealing names</p>
-					<span style='font-size:30px;'>&#128553;</span>
-					<pre><code class="hljs" data-trim data-line-numbers="">
-						int d; // days since creation
-						List&lt;Employee&gt; list = new ArrayList&lt;&gt;(); // list of all employees
-						List&lt;Employee&gt; employees = employees // list of emps older than 30
-							.stream()
-							.filter(e -> e.getAge &gt; 30)
-							.collect(Collectors.toList());
-					</code></pre>
-					<span style='font-size:30px;'>&#128522;</span>
-					<pre><code class="hljs" data-trim data-line-numbers="">
-						int daysSinceCreation;
-						List&lt;Employee&gt; employees = new ArrayList&lt;&gt;();
-						List&lt;Employee&gt; employeesOlderThanThirty = employees
-							.stream()
-							.filter(e -> e.getAge &gt; 30)
-							.collect(Collectors.toList());
-					</code></pre>
-				</section>
-				<section>
-					<br><br>
-					<p style="font-size:25px; color: #a9c23f;">use intention-revealing names</p>
-					<span style='font-size:30px;'>&#128553;</span>
-					<pre><code class="hljs" data-trim data-line-numbers="">
-						int d; // days since creation
-						List&lt;Employee&gt; list = new ArrayList&lt;&gt;(); // list of all employees
-						List&lt;Employee&gt; employees = employees // list of emps older than 30
-							.stream()
-							.filter(e -> e.getAge &gt; 30)
-							.collect(Collectors.toList());
-					</code></pre>
-					<span style='font-size:30px;'>&#128522;</span>
-					<pre><code class="hljs" data-trim data-line-numbers="">
-						int daysSinceCreation;
-						List&lt;Employee&gt; employees = new ArrayList&lt;&gt;();
-						List&lt;Employee&gt; employeesOlderThanThirty = employees
-							.stream()
-							.filter(e -> e.getAge &gt; 30)
-							.collect(Collectors.toList());
-					</code></pre>
-				</section>
-			</section>
-			<section>
-				<h3>Methods</h3>
-			</section>
-			<section>
-				<h3>Comments</h3>
-			</section>
-			<section>
-				<h3>Formatting</h3>
-			</section>
-			<section>
-				<h3>Write Tests!</h3>
-				<img src="./images/uncle-bob.gif" alt="" style="border: 0px;">
-			</section>
-			<section>
-				<h3>Write Tests!</h3>
-			</section>
-			<section>
-				<h2>worth reading</h2>
-				<h4>...and living by ;)</h4>
-				<ul style="font-size: 20px;">
-					<li>Martin, Robert C. (2009). Clean Code: A Handbook of Agile Software Craftsmanship</li>
-					<li>Martin, Robert C. (2011). The Clean Coder: A Code of Conduct for Professional Programmers</li>
-					<li>Martin, Robert C. (2017). Clean Architecture: A Craftsman's Guide to Software Structure and
-						Design</li>
-					<li>...</li>
-				</ul>
-			</section>
-			<section></section>
-			<section></section>
-			<section></section>
-			<section></section>
-			<section></section>
-			<section></section>
-			<section></section>
-			<section></section>
-		</div>
-	</div>
+            <h3 class="fragment fade-up">we are agile &#10069;</h3>
+        </section>
+        <section>
+            <h3>clean code</h3>
+            <blockquote cite="Bjarne Stroustrup, inventor of C++ and author of The C++ Programming Language">
+                &ldquo;...elegant and efficient. The logic should be straightforward..., the dependencies
+                minimal...,error handling complete, performace close to optimal so as not to tempt people to make
+                the code messy with unprincipled optimizations.
+                Clean code does one thing well.&rdquo; - Bjarne Stroustrup
+            </blockquote>
+        </section>
+        <section>
+            <h3>clean code</h3>
+            <blockquote cite="Grady Booch, author of Object Oriented Analysis and Design with Applications">
+                &ldquo;Clean code is simple and direct. Clean code reads like well-written prose. Clean code never
+                obscures the designer's intent but rather is full of crisp abstractions and straightforward lines of
+                control.&rdquo; - Grady Booch
+            </blockquote>
+        </section>
+        <section>
+            <h3>clean code</h3>
+            <blockquote cite="'Big' Dave Thomas, founder of OTI, godfather of the Eclipse strategy">
+                &ldquo;Clean code can be read, and enhanced by a developer other than its original author. It has
+                unit and acceptance tests. It has meaningful names. It provides one way rather than many ways of
+                doing one thing. It has minimal dependencies...&rdquo; - "Big" Dave Thomas
+            </blockquote>
+        </section>
+        <section>
+            <h3>clean code</h3>
+            <blockquote cite="Michael Feathers, author of Working Effectively with Legacy Code">
+                &ldquo;...Clean code always looks like it was written by someone who cares. There is nothing obvious
+                that you can do to make it better...code someone left for you - code left by someone who cares
+                deaply about the craft.&rdquo; - Michael Feathers
+            </blockquote>
+        </section>
+        <section>
+            <h3>clean code</h3>
+            <blockquote cite="Ward Cunningham, inventor of Wiki, coinventor of eXtreme Programming...">
+                &ldquo;You know you are working on clean code when each routine you read turns out to be pretty much
+                what you expected. You can call it beautiful code when the code also makes it look like the language
+                was made for the problem.&rdquo; - Ward Cunningham
+            </blockquote>
+        </section>
+        <section>
+            <h3>clean code</h3>
+            <h5>The Boy Scout Rule</h5>
+            <p>
+            <blockquote>&ldquo;Leave the campground cleaner than when you found it.&rdquo;</blockquote>
+            </p>
+            <p>If we all checked-in our code a little cleaner than when we checked it out, the code simple could not
+                rot.</p>
+        </section>
+        <section>
+            <h3>Naming</h3>
+            <p style="font-size:15px;">the second hard thing in Computer Science</p>
+            <section>
+                <br><br>
+                <div><span style="color: #a9c23f; font-size: 20px;">use intention-revealing names</span></div>
+                <span style="font-size:30px;">&#128553;</span>
+                <pre><code class="java" data-trim data-line-numbers="">
+                    // what's the intention of this variable?
+                    int dsc; // days since creation
 
-	<script src="js/reveal.js"></script>
+                    // too general, it hides the real intention
+                    List&lt;Employee&gt; employees = employees
+                        .stream()
+                        .filter(e -> e.getAge &gt; 30)
+                        .collect(Collectors.toList());</code></pre>
+                <span style="font-size:30px;">&#128522;</span>
+                <pre><code class="java" data-trim data-line-numbers="">
+                    int daysSinceCreation;
+                    List&lt;Employee&gt; employeesOlderThanThirty = employees
+                        .stream()
+                        .filter(e -> e.getAge &gt; 30)
+                        .collect(Collectors.toList());</code></pre>
+            </section>
+            <section>
+                <br><br>
+                <div><span style="color: #a9c23f; font-size: 20px;">avoid disinformation</span></div>
+                <span style="font-size:30px;">&#128553;</span>
+                <pre><code class="java" data-trim data-line-numbers="">
+                    // container type encoded into the name
+                    List&lt;Employee&gt; employeesList = new ArrayList&lt;&gt;();
+                    Set&lt;Employee&gt; employeeSet = new HashSet&lt;&gt;();
 
-	<script>
-		// More info about config & dependencies:
-		// - https://github.com/hakimel/reveal.js#configuration
-		// - https://github.com/hakimel/reveal.js#dependencies
-		Reveal.initialize({
-			hash: true,
-			mouseWheel: true,
-			dependencies: [
-				{ src: 'plugin/markdown/marked.js' },
-				{ src: 'plugin/markdown/markdown.js' },
-				{ src: 'plugin/highlight/highlight.js', async: true },
-				{ src: 'plugin/zoom-js/zoom.js', async: true },
-				{ src: 'plugin/notes/notes.js', async: true }
-			]
-		});
-		Reveal.configure({ slideNumber: 'c/t' });
-		Reveal.configure({ transition: 'slide' });
+                    // these names vary in small ways
+                    List&lt;Employee&gt; getAllEmployeesWhoseFirstNameBeginWithAConstant() {
+                        return Collections.emptyList();
+                    }
+                    List&lt;Employee&gt; getAllEmployeesWhoseLastNameBeginWithAConstant() {
+                        return Collections.emptyList();
+                    }
+                </code></pre>
+            </section>
+            <section>
+                <br><br>
+                <div><span style="color: #a9c23f; font-size: 20px;">make meaningful distinctions</span></div>
+                <span style="font-size:30px;">&#128553;</span>
+                <pre><code class="java" data-trim data-line-numbers="">
+                    void copyLetters(char c1[], char c2[]) {}
 
-	</script>
+                    // what is exactly the difference between these?
+                    new Employee();
+                    new EmployeeData();
+                    new EmployeeInfo();
+                </code></pre>
+                <span style="font-size:30px;">&#128522;</span>
+                <pre><code class="java" data-trim data-line-numbers="">
+                    void copyLetters(char source[], char destination[]) {}
+                </code></pre>
+            </section>
+            <section>
+                <br><br>
+                <div><span style="color: #a9c23f; font-size: 20px;">interfaces and implementations</span></div>
+                <span style="font-size:30px;">&#128553;</span>
+                <pre><code class="java" data-trim data-line-numbers="">
+                    // encoding the interface in the type name
+                    IShape square1 = new Square();
+                </code></pre>
+                <span style="font-size:30px;">&#128522;</span>
+                <pre><code class="java" data-trim data-line-numbers="">
+                    Shape square = new Square();
+
+                    // better encode the implementation in the type name
+                    public class EmployeeDaoImpl implements EmployeeDao {}
+                </code></pre>
+            </section>
+            <section>
+                <br><br>
+                <div><span style="color: #a9c23f; font-size: 20px;">class names, method names</span></div>
+                <span style="font-size:30px;">&#128553;</span>
+                <pre><code class="java" data-trim data-line-numbers="">
+                    // a class name should not be a verb
+                    new FindEmployeeAdress();
+                    // do not use multiple words per concept
+                    fetchEmployee();
+                    retrieveEmployee();
+                    getEmployee();
+                </code></pre>
+                <span style="font-size:30px;">&#128522;</span>
+                <pre><code class="java" data-trim data-line-numbers="">
+                    // classes should have noun or noun phrase names
+                    new Square();
+                    new EmployeeAddress();
+                    // methods should have verb or verb phrase names
+                    boolean isOlderThanThirty() {return true;}
+                </code></pre>
+            </section>
+            <section>
+                <br><br>
+                <div><span style="color: #a9c23f; font-size: 20px;">class names, method names</span></div>
+                <pre><code class="java" data-trim>
+                    // javabean standard
+                    setName("John");
+                    getName();
+                    isInsured();
+                    setInsured(false);
+
+                    // consider the fluent notation -> next level Builder Pattern
+                    List&lt;Employee&gt; employees = new ArrayList<>(Arrays.asList(
+                    // setFirstName -> firstName ...
+                     new Employee().setFirstName("Vlad").setLastName("Flore").setAge(33),
+                     new Employee().setFirstName("Jonh").setLastName("Doe").setAge(25),
+                     new Employee().setFirstName("Jane").setLastName("Doe").setAge(30)
+                    ));
+                </code></pre>
+            </section>
+        </section>
+        <section>
+            <h3>Methods</h3>
+        </section>
+        <section>
+            <h3>Comments</h3>
+        </section>
+        <section>
+            <h3>Formatting</h3>
+        </section>
+        <section>
+            <h3>Write Tests!</h3>
+            <img src="./images/uncle-bob.gif" alt="" style="border: 0px;">
+        </section>
+        <section>
+            <h3>Write Tests!</h3>
+        </section>
+        <section>
+            <h2>worth reading</h2>
+            <h4>...and living by ;)</h4>
+            <ul style="font-size: 20px;">
+                <li>Martin, Robert C. (2009). Clean Code: A Handbook of Agile Software Craftsmanship</li>
+                <li>Martin, Robert C. (2011). The Clean Coder: A Code of Conduct for Professional Programmers</li>
+                <li>Martin, Robert C. (2017). Clean Architecture: A Craftsman's Guide to Software Structure and
+                    Design
+                </li>
+                <li>...</li>
+            </ul>
+        </section>
+        <section></section>
+        <section></section>
+        <section></section>
+        <section></section>
+        <section></section>
+        <section></section>
+        <section></section>
+        <section></section>
+    </div>
+</div>
+
+<script src="js/reveal.js"></script>
+
+<script>
+    // More info about config & dependencies:
+    // - https://github.com/hakimel/reveal.js#configuration
+    // - https://github.com/hakimel/reveal.js#dependencies
+    Reveal.initialize({
+        hash: true,
+        mouseWheel: true,
+        dependencies: [
+            {src: 'plugin/markdown/marked.js'},
+            {src: 'plugin/markdown/markdown.js'},
+            {src: 'plugin/highlight/highlight.js', async: true},
+            {src: 'plugin/zoom-js/zoom.js', async: true},
+            {src: 'plugin/notes/notes.js', async: true}
+        ]
+    });
+    Reveal.configure({slideNumber: 'c/t'});
+    Reveal.configure({transition: 'slide'});
+
+</script>
 </body>
 
 </html>

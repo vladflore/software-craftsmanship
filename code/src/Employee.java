@@ -3,17 +3,17 @@ public class Employee {
     private String lastName;
     private int age;
 
-    Employee firstName(String fn) {
+    Employee setFirstName(String fn) {
         this.firstName = fn;
         return this;
     }
 
-    Employee lastName(String ln) {
+    Employee setLastName(String ln) {
         this.lastName = ln;
         return this;
     }
 
-    Employee age(int age) {
+    Employee setAge(int age) {
         this.age = age;
         return this;
     }

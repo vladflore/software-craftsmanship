@@ -1,6 +1,4 @@
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
+import java.util.*;
 import java.util.stream.Collectors;
 
 public class Company {
@@ -8,9 +6,9 @@ public class Company {
     public static void main(String[] args) {
 
         List<Employee> employees = new ArrayList<>(Arrays.asList(
-                new Employee().firstName("Vlad").lastName("Flore").age(33),
-                new Employee().firstName("Jonh").lastName("Doe").age(25),
-                new Employee().firstName("Jane").lastName("Doe").age(30)));
+                new Employee().setFirstName("Vlad").setLastName("Flore").setAge(33),
+                new Employee().setFirstName("Jonh").setLastName("Doe").setAge(25),
+                new Employee().setFirstName("Jane").setLastName("Doe").setAge(30)));
 
         List<Employee> employeesOlderThanThirty = employees
                 .stream()
@@ -25,5 +23,34 @@ public class Company {
                 .collect(Collectors.toList());
 
         System.out.println(employeesOlderThanThirty);
+
+        Set<Employee> employeeSet = new HashSet<>();
+
+        new Employee();
+        new EmployeeData();
+        new EmployeeInfo();
+
+        Shape square = new Square();
+        IShape square1 = new Square();
+
+        EmployeeDao employeeDao = new EmployeeDaoImpl();
+        List<Employee> allEmployees = employeeDao.fetchAllEmployess();
+
+        new Square();
+        new EmployeeAddress();
+
+        new FindEmployeeAdress();
+
+    }
+
+    List<Employee> getAllEmployeesWhoseFirstNameBeginWithAConstant() {
+        return Collections.emptyList();
+    }
+
+    List<Employee> getAllEmployeesWhoseLastNameBeginWithAConstant() {
+        return Collections.emptyList();
+    }
+
+    void copyChars(char c1[], char c2[]) {
     }
 }
