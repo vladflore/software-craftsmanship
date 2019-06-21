@@ -285,9 +285,101 @@
 			</section>
 			<section>
 				<h3>clean code</h3>
+				<blockquote cite="Bjarne Stroustrup, inventor of C++ and author of The C++ Programming Language">
+					&ldquo;...elegant and efficient. The logic should be straightforward..., the dependencies
+					minimal...,error handling complete, performace close to optimal so as not to tempt people to make
+					the code messy with unprincipled optimizations.
+					Clean code does one thing well.&rdquo; - Bjarne Stroustrup
+				</blockquote>
+			</section>
+			<section>
+				<h3>clean code</h3>
+				<blockquote cite="Grady Booch, author of Object Oriented Analysis and Design with Applications">
+					&ldquo;Clean code is simple and direct. Clean code reads like well-written prose. Clean code never
+					obscures the designer's intent but rather is full of crisp abstractions and straightforward lines of
+					control.&rdquo; - Grady Booch
+				</blockquote>
+			</section>
+			<section>
+				<h3>clean code</h3>
+				<blockquote cite="'Big' Dave Thomas, founder of OTI, godfather of the Eclipse strategy">
+					&ldquo;Clean code can be read, and enhanced by a developer other than its original author. It has
+					unit and acceptance tests. It has meaningful names. It provides one way rather than many ways of
+					doing one thing. It has minimal dependencies...&rdquo; - "Big" Dave Thomas
+				</blockquote>
+			</section>
+			<section>
+				<h3>clean code</h3>
+				<blockquote cite="Michael Feathers, author of Working Effectively with Legacy Code">
+					&ldquo;...Clean code always looks like it was written by someone who cares. There is nothing obvious
+					that you can do to make it better...code someone left for you - code left by someone who cares
+					deaply about the craft.&rdquo; - Michael Feathers
+				</blockquote>
+			</section>
+			<section>
+				<h3>clean code</h3>
+				<blockquote cite="Ward Cunningham, inventor of Wiki, coinventor of eXtreme Programming...">
+					&ldquo;You know you are working on clean code when each routine you read turns out to be pretty much
+					what you expected. You can call it beautiful code when the code also makes it look like the language
+					was made for the problem.&rdquo; - Ward Cunningham
+				</blockquote>
+			</section>
+			<section>
+				<h3>clean code</h3>
+				<h5>The Boy Scout Rule</h5>
+				<p>
+					<blockquote>&ldquo;Leave the campground cleaner than when you found it.&rdquo;</blockquote>
+				</p>
+				<p>If we all checked-in our code a little cleaner than when we checked it out, the code simple could not
+					rot.</p>
 			</section>
 			<section>
 				<h3>Naming</h3>
+				<p style="font-size:18px;">the second hard thing in Computer Science</p>
+				<section>
+					<br><br>
+					<p style="font-size:25px; color: #a9c23f;">use intention-revealing names</p>
+					<span style='font-size:30px;'>&#128553;</span>
+					<pre><code class="hljs" data-trim data-line-numbers="">
+						int d; // days since creation
+						List&lt;Employee&gt; list = new ArrayList&lt;&gt;(); // list of all employees
+						List&lt;Employee&gt; employees = employees // list of emps older than 30
+							.stream()
+							.filter(e -> e.getAge &gt; 30)
+							.collect(Collectors.toList());
+					</code></pre>
+					<span style='font-size:30px;'>&#128522;</span>
+					<pre><code class="hljs" data-trim data-line-numbers="">
+						int daysSinceCreation;
+						List&lt;Employee&gt; employees = new ArrayList&lt;&gt;();
+						List&lt;Employee&gt; employeesOlderThanThirty = employees
+							.stream()
+							.filter(e -> e.getAge &gt; 30)
+							.collect(Collectors.toList());
+					</code></pre>
+				</section>
+				<section>
+					<br><br>
+					<p style="font-size:25px; color: #a9c23f;">use intention-revealing names</p>
+					<span style='font-size:30px;'>&#128553;</span>
+					<pre><code class="hljs" data-trim data-line-numbers="">
+						int d; // days since creation
+						List&lt;Employee&gt; list = new ArrayList&lt;&gt;(); // list of all employees
+						List&lt;Employee&gt; employees = employees // list of emps older than 30
+							.stream()
+							.filter(e -> e.getAge &gt; 30)
+							.collect(Collectors.toList());
+					</code></pre>
+					<span style='font-size:30px;'>&#128522;</span>
+					<pre><code class="hljs" data-trim data-line-numbers="">
+						int daysSinceCreation;
+						List&lt;Employee&gt; employees = new ArrayList&lt;&gt;();
+						List&lt;Employee&gt; employeesOlderThanThirty = employees
+							.stream()
+							.filter(e -> e.getAge &gt; 30)
+							.collect(Collectors.toList());
+					</code></pre>
+				</section>
 			</section>
 			<section>
 				<h3>Methods</h3>
