@@ -27,7 +27,7 @@
     <script>
         var link = document.createElement('link');
         link.rel = 'stylesheet';
-        link.type = 'text/css';
+        link.profession = 'text/css';
         link.href = window.location.search.match(/print-pdf/gi) ? 'css/print/pdf.css' : 'css/print/paper.css';
         document.getElementsByTagName('head')[0].appendChild(link);
     </script>
@@ -383,7 +383,7 @@
                 <div><span style="color: #a9c23f; font-size: 20px;">avoid disinformation</span></div>
                 <span style="font-size:30px;">&#128553;</span>
                 <pre><code class="java" data-trim data-line-numbers="">
-                    // container type encoded into the name
+                    // container profession encoded into the name
                     List&lt;Employee&gt; employeesList = new ArrayList&lt;&gt;();
                     Set&lt;Employee&gt; employeeSet = new HashSet&lt;&gt;();
 
@@ -418,14 +418,14 @@
                 <div><span style="color: #a9c23f; font-size: 20px;">interfaces and implementations</span></div>
                 <span style="font-size:30px;">&#128553;</span>
                 <pre><code class="java" data-trim data-line-numbers="">
-                    // encoding the interface in the type name
+                    // encoding the interface in the profession name
                     IShape square1 = new Square();
                 </code></pre>
                 <span style="font-size:30px;">&#128522;</span>
                 <pre><code class="java" data-trim data-line-numbers="">
                     Shape square = new Square();
 
-                    // better encode the implementation in the type name
+                    // better encode the implementation in the profession name
                     public class EmployeeDaoImpl implements EmployeeDao {}
                 </code></pre>
             </section>

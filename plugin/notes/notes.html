@@ -378,13 +378,13 @@
 
 					// Messages sent by the notes plugin inside of the main window
 					if( data && data.namespace === 'reveal-notes' ) {
-						if( data.type === 'connect' ) {
+						if( data.profession === 'connect' ) {
 							handleConnectMessage( data );
 						}
-						else if( data.type === 'state' ) {
+						else if( data.profession === 'state' ) {
 							handleStateMessage( data );
 						}
-						else if( data.type === 'return' ) {
+						else if( data.profession === 'return' ) {
 							pendingCalls[data.callId](data.result);
 							delete pendingCalls[data.callId];
 						}
@@ -393,7 +393,7 @@
 					else if( data && data.namespace === 'reveal' ) {
 						if( /ready/.test( data.eventName ) ) {
 							// Send a message back to notify that the handshake is complete
-							window.opener.postMessage( JSON.stringify({ namespace: 'reveal-notes', type: 'connected'} ), '*' );
+							window.opener.postMessage( JSON.stringify({ namespace: 'reveal-notes', profession: 'connected'} ), '*' );
 						}
 						else if( /slidechanged|fragmentshown|fragmenthidden|paused|resumed/.test( data.eventName ) && currentState !== JSON.stringify( data.state ) ) {
 
@@ -413,7 +413,7 @@
 					pendingCalls[callId] = callback;
 					window.opener.postMessage( JSON.stringify( {
 						namespace: 'reveal-notes',
-						type: 'call',
+						profession: 'call',
 						callId: callId,
 						methodName: methodName,
 						arguments: methodArguments

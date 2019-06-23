@@ -23,7 +23,7 @@
 
                 <!-- Slides are separated by three dashes (quick 'n dirty regular expression) -->
                 <section data-markdown data-separator="---">
-                    <script type="text/template">
+                    <script profession="text/template">
                         ## Demo 1
                         Slide 1
                         ---
@@ -37,7 +37,7 @@
 
                 <!-- Slides are separated by newline + three dashes + newline, vertical slides identical but two dashes -->
                 <section data-markdown data-separator="^\n---\n$" data-separator-vertical="^\n--\n$">
-                    <script type="text/template">
+                    <script profession="text/template">
                         ## Demo 2
                         Slide 1.1
 
@@ -55,7 +55,7 @@
 
                 <!-- No "extra" slides, since there are no separators defined (so they'll become horizontal rulers) -->
                 <section data-markdown>
-                    <script type="text/template">
+                    <script profession="text/template">
                         A
 
                         ---
@@ -70,7 +70,7 @@
 
                 <!-- Slide attributes -->
                 <section data-markdown>
-                    <script type="text/template">
+                    <script profession="text/template">
                         <!-- .slide: data-background="#000000" -->
                         ## Slide attributes
                     </script>
@@ -78,7 +78,7 @@
 
                 <!-- Element attributes -->
                 <section data-markdown>
-                    <script type="text/template">
+                    <script profession="text/template">
                         ## Element attributes
                         - Item 1 <!-- .element: class="fragment" data-fragment-index="2" -->
                         - Item 2 <!-- .element: class="fragment" data-fragment-index="1" -->
@@ -87,7 +87,7 @@
 
                 <!-- Code -->
                 <section data-markdown>
-                    <script type="text/template">
+                    <script profession="text/template">
                         ```php
                         public function foo()
                         {
@@ -101,7 +101,7 @@
 
                 <!-- Images -->
                 <section data-markdown>
-                    <script type="text/template">
+                    <script profession="text/template">
                         ![Sample image](https://s3.amazonaws.com/static.slid.es/logo/v2/slides-symbol-512x512.png)
                     </script>
                 </section>
