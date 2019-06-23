@@ -431,7 +431,7 @@
             </section>
             <section>
                 <br><br>
-                <div><span style="color: #a9c23f; font-size: 20px;">class names, method names</span></div>
+                <div><span style="color: #a9c23f; font-size: 20px;">name your classes and methods appropriately</span></div>
                 <span style="font-size:30px;">&#128553;</span>
                 <pre><code class="java" data-trim data-line-numbers="">
                     // a class name should not be a verb
@@ -452,7 +452,7 @@
             </section>
             <section>
                 <br><br>
-                <div><span style="color: #a9c23f; font-size: 20px;">class names, method names</span></div>
+                <div><span style="color: #a9c23f; font-size: 20px;">name your classes and methods appropriately</span></div>
                 <span style="font-size:30px;">&#128522;</span>
                 <pre><code class="java" data-trim>
                     // javabean standard
@@ -461,7 +461,7 @@
                     isInsured();
                     setInsured(false);
 
-                    // consider the fluent notation -> next level Builder Pattern
+                    // consider the fluent notation -> next level: Builder Pattern
                     List&lt;Employee&gt; employees = new ArrayList<>(Arrays.asList(
                     // setFirstName -> firstName ...
                      new Employee().setFirstName("Vlad").setLastName("Flore").setAge(33),
@@ -470,9 +470,166 @@
                     ));
                 </code></pre>
             </section>
+            <section>
+                <br><br>
+                <div><span style="color: #a9c23f; font-size: 20px;">solution domain names, problem domain names</span></div>
+                <span style="font-size:30px;">&#128522;</span>
+                <pre><code class="java" data-trim data-line-numbers="">
+                    new EmployeeAddress();
+                    new JuniorEmployee();
+                    new AssociateEmployee();
+                    new AdvancedEmployee();
+                    new SeniorEmployee();
+                    new PrincipalEmployee();
+                    new SeniorPrincipalEmployee();
+
+                    // Visitor Pattern
+                    new EmployeeAccountVisitor();
+                </code></pre>
+            </section>
         </section>
         <section>
-            <h3>Methods</h3>
+            <h3>Functions</h3>
+            <section>
+                <br><br>
+                <div><span style="color: #a9c23f; font-size: 20px;">first rule of functions is that they should be small</span></div>
+                <div><span style="color: #a9c23f; font-size: 20px;">second rule of functions is that they should be smaller than that</span></div>
+                <span style="font-size:30px;">&#128522;</span>
+                <pre><code class="java" data-trim data-line-numbers="">
+                    public List&lt;Employee&gt; findSeniorEmployees() {
+                        // 20 lines max.
+                    }
+                </code></pre>
+            </section>
+            <section>
+                <br><br>
+                <div><span style="color: #a9c23f; font-size: 20px;">functions should not be large enough to hold nested structures</span></div>
+                <div><span style="color: #a9c23f; font-size: 20px;">the indent level of a function should not be greater than one or two</span></div>
+                <span style="font-size:30px;">&#128522;</span>
+                <pre><code class="java" data-trim data-line-numbers="">
+
+                </code></pre>
+            </section>
+            <section>
+                <br><br>
+                <div><span style="color: #a9c23f; font-size: 20px;">do one thing!</span></div>
+                <div><span style="color: #a9c23f; font-size: 20px;">functions should do <strong>one thing</strong>, they should do it well, they should do it only</span></div>
+                <div><span style="color: #a9c23f; font-size: 20px;">one level of abstraction below the stated name of the function</span></div>
+                <span style="font-size:30px;">&#128553;</span><span style="font-size: 15px;">&nbsp; there was this thing called SRP...</span>
+                <pre><code class="java" data-trim data-line-numbers="">
+                    findSeniorEmployeesAndCalculateAverageSeniority();
+                </code></pre>
+                <span style="font-size:30px;">&#128522;</span>
+                <pre><code class="java" data-trim data-line-numbers="">
+                    // they can be better tested
+                    findSeniorEmployees();
+                    calculateAverageSeniority();
+                </code></pre>
+            </section>
+            <section>
+                <br><br>
+                <div><span style="color: #a9c23f; font-size: 20px;">can you extract another function from it with a name that is not merely a restatement of its implementation?</span></div>
+                <div><span style="color: #a9c23f; font-size: 20px;">we want the code to read like a top-down narative</span></div>
+                <div><span style="color: #a9c23f; font-size: 20px;">we want every function to be followed by those at the next level of abstraction</span></div>
+                <span style="font-size:30px;">&#128553;</span><span style="font-size: 15px;">&nbsp; valid data, statement lambda</span>
+                <pre><code class="java" style="width: fit-content;" data-trim data-line-numbers="2-4,8-11">
+                public List&lt;Employee&gt; findSeniorFemaleEmployees(List&lt;Employee&gt; employees) {
+                    if (CollectionUtils.isEmpty(employees)) {
+                        throw new IllegalArgumentException("There are no employees");
+                    }
+
+                    return employees
+                            .stream()
+                            .filter(employee -> {
+                                return employee.getSeniorityLevel() == SeniorityLevel.SENIOR
+                                        && employee.getGender() == Gender.FEMALE;
+                            })
+                            .collect(Collectors.toList());
+                }
+                </code></pre>
+            </section>
+            <section>
+                <br><br>
+                <span style="font-size:30px;">&#128553;</span><span style="font-size: 15px;">&nbsp; expression lambda too long</span>
+                <pre><code class="java" style="width: fit-content;" data-trim data-line-numbers="2,6-7">
+                public List&lt;Employee&gt; findSeniorFemaleEmployees(List&lt;Employee&gt; employees) {
+                    Assert.notEmpty(employees, "There are no employees.");
+
+                    return employees
+                            .stream()
+                            .filter(employee -> employee.getSeniorityLevel() == SeniorityLevel.SENIOR
+                                    && employee.getGender() == Gender.FEMALE)
+                            .collect(Collectors.toList());
+                }
+                </code></pre>
+            </section>
+            <section>
+                <br><br>
+                <span style="font-size:30px;">&#128553;</span><span style="font-size: 15px;">&nbsp; ok, improvement, but could be better</span>
+                <pre><code class="java" style="width: fit-content;" data-trim data-line-numbers="6,7">
+                public List&lt;Employee&gt; findSeniorFemaleEmployees(List&lt;Employee&gt; employees) {
+                    Assert.notEmpty(employees, "There are no employees.");
+
+                    return employees
+                            .stream()
+                            .filter(employee -> employee.getSeniorityLevel() == SeniorityLevel.SENIOR)
+                            .filter(employee -> employee.getGender() == Gender.FEMALE)
+                            .collect(Collectors.toList());
+                }
+                </code></pre>
+            </section>
+            <section>
+                <br><br>
+                <span style="font-size:30px;">&#128522;</span>
+                <pre><code class="java" style="width: fit-content;" data-trim data-line-numbers="6,7,11-14,16-19">
+                public List&lt;Employee&gt; findSeniorFemaleEmployees(List&lt;Employee&gt; employees) {
+                    Assert.notEmpty(employees, "There are no employees.");
+
+                    return employees
+                            .stream()
+                            .filter(this::isSenior)
+                            .filter(this::isFemale)
+                            .collect(Collectors.toList());
+                }
+                // minimal vertical distance
+                public boolean isSenior(Employee employee) {
+                    Assert.notNull(employee, "Employee does not exist.");
+                    return employee.getSeniorityLevel() == SeniorityLevel.SENIOR;
+                }
+
+                public boolean isFemale(Employee employee) {
+                    Assert.notNull(employee, "Employee does not exist.");
+                    return employee.getGender() == Gender.FEMALE;
+                }
+                </code></pre>
+            </section>
+            <section>
+                <br><br>
+                <span style="font-size:30px;">&#128522;</span>
+                <pre><code class="java" style="width: fit-content;" data-trim data-line-numbers="">
+                public List&lt;Employee&gt; findSeniorFemaleEmployees(List&lt;Employee&gt; employees) {
+                    Assert.notEmpty(employees, "There are no employees.");
+                    return employees.stream().filter(this::isSenior).filter(this::isFemale)
+                        .collect(Collectors.toList());
+                }
+                </code></pre>
+            </section>
+            <section>
+                <br><br>
+                <div><span style="color: #a9c23f; font-size: 20px;">the interesting case of The Switch Statement</span></div>
+                <span style="font-size:30px;">&#128553;</span>
+                <pre><code class="java" data-trim data-line-numbers="">
+
+                </code></pre>
+            </section>
+            <section>
+                <br><br>
+                <div><span style="color: #a9c23f; font-size: 20px;">the interesting case of The Switch Statement</span></div>
+                <span style="font-size:30px;">&#128522;</span>
+                <pre><code class="java" data-trim data-line-numbers="">
+
+                </code></pre>
+            </section>
         </section>
         <section>
             <h3>Comments</h3>
