@@ -55,6 +55,8 @@ public class Company {
 
         new EmployeeAccountVisitor();
 
+        // method();
+
     }
 
     List<Employee> getAllEmployeesWhoseFirstNameBeginWithAConstant() {
@@ -100,6 +102,47 @@ public class Company {
         Assert.notNull(employee, "Employee does not exist.");
         return employee.getSeniorityLevel() == SeniorityLevel.SENIOR && employee.getGender() == Gender.FEMALE;
     }
+
+    public void doJustOneThing(Data data) {
+        if (isValid(data)) {
+            doSomethingCleverWithThatData(data);
+        }
+    }
+
+    private boolean isValid(Data data) {
+        return true;
+    }
+
+    private void doSomethingCleverWithThatData(Data data) {
+        System.out.println("Doing something clever with data...");
+    }
+
+    void method(String one,
+                String two,
+                Integer three,
+                Boolean four,
+                boolean five,
+                Data data,
+                String... extra) {
+
+
+        if (checkPassword("Vlad", "1234")) {
+            initializeSession();
+        }
+
+
+    }
+
+    boolean checkPassword(String userName, String password) {
+        // check password here
+        initializeSession();
+        return true;
+    }
+
+    private void initializeSession() {
+
+    }
+
 }
 
 

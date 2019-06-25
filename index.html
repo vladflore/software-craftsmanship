@@ -507,7 +507,19 @@
                 <div><span style="color: #a9c23f; font-size: 20px;">the indent level of a function should not be greater than one or two</span></div>
                 <span style="font-size:30px;">&#128522;</span>
                 <pre><code class="java" data-trim data-line-numbers="">
+                    public void doJustOneThing(Data data) {
+                        if (isValid(data)) {
+                            doSomethingCleverWithThatData(data);
+                        }
+                    }
 
+                    private boolean isValid(Data data) {
+                        return true;
+                    }
+
+                    private void doSomethingCleverWithThatData(Data data) {
+                        System.out.println("Doing something clever with data...");
+                    }
                 </code></pre>
             </section>
             <section>
@@ -532,60 +544,55 @@
                 <div><span style="color: #a9c23f; font-size: 20px;">we want the code to read like a top-down narative</span></div>
                 <div><span style="color: #a9c23f; font-size: 20px;">we want every function to be followed by those at the next level of abstraction</span></div>
                 <span style="font-size:30px;">&#128553;</span><span style="font-size: 15px;">&nbsp; valid data, statement lambda</span>
-                <pre><code class="java" style="width: fit-content;" data-trim data-line-numbers="2-4,8-11">
-                public List&lt;Employee&gt; findSeniorFemaleEmployees(List&lt;Employee&gt; employees) {
-                    if (CollectionUtils.isEmpty(employees)) {
-                        throw new IllegalArgumentException("There are no employees");
-                    }
+                <pre><code class="java" data-trim data-line-numbers="2-4,7-8">
+                List&lt;Employee&gt; findSeniorFemaleEmployees(List&lt;Employee&gt; employees){
+                  if (CollectionUtils.isEmpty(employees)) {
+                    throw new IllegalArgumentException("There are no employees");
+                  }
 
-                    return employees
-                            .stream()
-                            .filter(employee -> {
-                                return employee.getSeniorityLevel() == SeniorityLevel.SENIOR
-                                        && employee.getGender() == Gender.FEMALE;
-                            })
-                            .collect(Collectors.toList());
+                  return employees.stream().filter(employee -> {
+                      return employee.getSeniorityLevel() == SENIOR &&
+                             employee.getGender() == FEMALE;
+                  }).collect(Collectors.toList());
                 }
                 </code></pre>
             </section>
             <section>
                 <br><br>
                 <span style="font-size:30px;">&#128553;</span><span style="font-size: 15px;">&nbsp; expression lambda too long</span>
-                <pre><code class="java" style="width: fit-content;" data-trim data-line-numbers="2,6-7">
-                public List&lt;Employee&gt; findSeniorFemaleEmployees(List&lt;Employee&gt; employees) {
-                    Assert.notEmpty(employees, "There are no employees.");
+                <pre><code class="java" data-trim data-line-numbers="2,5-6">
+                List&lt;Employee&gt; findSeniorFemaleEmployees(List&lt;Employee&gt; employees) {
+                  Assert.notEmpty(employees, "There are no employees.");
 
-                    return employees
-                            .stream()
-                            .filter(employee -> employee.getSeniorityLevel() == SeniorityLevel.SENIOR
-                                    && employee.getGender() == Gender.FEMALE)
-                            .collect(Collectors.toList());
+                  return employees.stream()
+                   .filter(employee -> employee.getSeniorityLevel() == SENIOR &&
+                                       employee.getGender() == FEMALE)
+                   .collect(Collectors.toList());
                 }
                 </code></pre>
             </section>
             <section>
                 <br><br>
                 <span style="font-size:30px;">&#128553;</span><span style="font-size: 15px;">&nbsp; ok, improvement, but could be better</span>
-                <pre><code class="java" style="width: fit-content;" data-trim data-line-numbers="6,7">
-                public List&lt;Employee&gt; findSeniorFemaleEmployees(List&lt;Employee&gt; employees) {
+                <pre><code class="java" data-trim data-line-numbers="5,6">
+                List&lt;Employee&gt; findSeniorFemaleEmployees(List&lt;Employee&gt; employees) {
                     Assert.notEmpty(employees, "There are no employees.");
 
-                    return employees
-                            .stream()
-                            .filter(employee -> employee.getSeniorityLevel() == SeniorityLevel.SENIOR)
-                            .filter(employee -> employee.getGender() == Gender.FEMALE)
-                            .collect(Collectors.toList());
+                    return employees.stream()
+                        .filter(employee -> employee.getSeniorityLevel() == SENIOR)
+                        .filter(employee -> employee.getGender() == FEMALE)
+                        .collect(Collectors.toList());
                 }
                 </code></pre>
             </section>
             <section>
                 <br><br>
                 <span style="font-size:30px;">&#128522;</span>
-                <pre><code class="java" style="width: fit-content;" data-trim data-line-numbers="6,7,11-14,16-19">
-                public List&lt;Employee&gt; findSeniorFemaleEmployees(List&lt;Employee&gt; employees) {
-                    Assert.notEmpty(employees, "There are no employees.");
+                <pre><code class="java" data-trim data-line-numbers="6,7,11-14,16-19">
+                List&lt;Employee&gt; findSeniorFemaleEmployees(List&lt;Employee&gt; emps){
+                    Assert.notEmpty(emps, "There are no employees.");
 
-                    return employees
+                    return emps
                             .stream()
                             .filter(this::isSenior)
                             .filter(this::isFemale)
@@ -594,54 +601,91 @@
                 // minimal vertical distance
                 public boolean isSenior(Employee employee) {
                     Assert.notNull(employee, "Employee does not exist.");
-                    return employee.getSeniorityLevel() == SeniorityLevel.SENIOR;
+                    return employee.getSeniorityLevel() == SENIOR;
                 }
 
                 public boolean isFemale(Employee employee) {
                     Assert.notNull(employee, "Employee does not exist.");
-                    return employee.getGender() == Gender.FEMALE;
+                    return employee.getGender() == FEMALE;
                 }
                 </code></pre>
             </section>
             <section>
                 <br><br>
-                <span style="font-size:30px;">&#128522;</span>
-                <pre><code class="java" style="width: fit-content;" data-trim data-line-numbers="">
-                public List&lt;Employee&gt; findSeniorFemaleEmployees(List&lt;Employee&gt; employees) {
-                    Assert.notEmpty(employees, "There are no employees.");
-                    return employees.stream().filter(this::isSenior).filter(this::isFemale)
-                        .collect(Collectors.toList());
-                }
-                </code></pre>
-            </section>
-            <section>
-                <br><br>
-                <div><span style="color: #a9c23f; font-size: 20px;">the interesting case of The Switch Statement</span></div>
+                <div><span style="color: #a9c23f; font-size: 20px;">function arguments</span></div>
                 <span style="font-size:30px;">&#128553;</span>
-                <pre><code class="java" data-trim data-line-numbers="">
-
+                <pre><code class="java"  data-trim data-line-numbers="">
+                    void method(String one, String two, Integer three, Boolean four,
+                                boolean five, Data data, String... extra){
+                        // does nothing,
+                        // 25.06.2019 Vlad suggested I should read Clean Code! I won't!
+                        // is usually buried deep down in the code
+                        // forcing you to jump all over the place to find it
+                    }
                 </code></pre>
+                <img src="./images/ctrlplusp.PNG" alt="" style="border: 0px;">
             </section>
             <section>
                 <br><br>
-                <div><span style="color: #a9c23f; font-size: 20px;">the interesting case of The Switch Statement</span></div>
+                <div><span style="color: #a9c23f; font-size: 20px;">the ideal number of arguments for a function is zero</span></div>
+                <div><span style="color: #a9c23f; font-size: 20px;">monadic (1), dyadic (2), triadic (3), polyadic (avoid!)</span></div>
                 <span style="font-size:30px;">&#128522;</span>
                 <pre><code class="java" data-trim data-line-numbers="">
-
+                    // ask a question about the argument
+                    boolean isOlderThanThirty(person)
+                    // operate on the argument, transforming it and returning it
+                    InputStream fileOpen("myfile.txt")
+                    // flag arguments are ugly! SRP, remember?
+                    void doSomething(boolean flag)
+                    Point p = new Point(0,0) // the data belongs together
+                    assertEquals(expected, actual) // use assertj for fluent assertions
+                    assertThat(frodo.getName())
+                        .startsWith("Fro")
+                        .endsWith("do")
+                        .isEqualToIgnoringCase("frodo");
+                    assertEquals(message, expected, actual)
                 </code></pre>
             </section>
             <section>
                 <br><br>
+                <div><span style="color: #a9c23f; font-size: 20px;">no side effects, side effects are lies</span></div>
+                <div><span style="color: #a9c23f; font-size: 20px;">functions should either do something or answer something, not both</span></div>
                 <div><span style="color: #a9c23f; font-size: 20px;"></span></div>
                 <span style="font-size:30px;">&#128553;</span>
-                <pre><code class="java" data-trim data-line-numbers="">
-
+                <pre><code class="java"  data-trim data-line-numbers="">
+                    boolean checkPassword(String userName, String password) {
+                        // code to check the password
+                        ...
+                        initializeSession(); // remove this!
+                        return true;
+                    }
                 </code></pre>
                 <span style="font-size:30px;">&#128522;</span>
                 <pre><code class="java" data-trim data-line-numbers="">
-
+                    if (checkPassword("Vlad", "1234")) {
+                        initializeSession();
+                    }
                 </code></pre>
             </section>
+        </section>
+        <section>
+            <div class="twocolumn">
+                <div style="text-align: center;">
+                    <h2>DRY</h2>
+                    Do not Repeat Yourself
+                </div>
+                <div style="text-align: center;">
+                    <h2>SRP</h2>
+                    Single Responsibility Principle
+                </div>
+            </div>
+            <br><br>
+            <div>
+                <h2>POLA</h2>
+                Principle Of Least Astonishment
+                <p style="font-size: 18px;">If a necessary feature has a high astonishment factor, it may be necessary to redesign the feature.</p>
+                <p style="font-size: 15px;">(Wikipedia)</p>
+            </div>
         </section>
         <section>
             <h3>Comments</h3>
