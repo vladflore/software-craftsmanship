@@ -1,11 +1,21 @@
 import enums.Gender;
 import enums.SeniorityLevel;
 
+/**
+ * The Employee class.
+ */
 public class Employee {
     private String firstName;
     private String lastName;
     private int age;
+
+
+    /**
+     * The gender of the employee
+     */
     private Gender gender;
+
+
     private SeniorityLevel seniorityLevel;
 
     Employee setFirstName(String fn) {
@@ -37,6 +47,11 @@ public class Employee {
         return this.seniorityLevel;
     }
 
+    /**
+     * Get gender.
+     *
+     * @return the Gender
+     */
     Gender getGender() {
         return this.gender;
     }

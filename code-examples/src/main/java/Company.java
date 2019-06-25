@@ -103,6 +103,17 @@ public class Company {
         return employee.getSeniorityLevel() == SeniorityLevel.SENIOR && employee.getGender() == Gender.FEMALE;
     }
 
+
+    void check(Employee employee){
+
+        // Check to see if the employee is a senior female employee, if so do ...
+        if(employee.getSeniorityLevel() == SeniorityLevel.SENIOR && employee.getGender() == Gender.FEMALE){}
+
+        if(this.isSeniorFemaleEmployee(employee)){}
+
+    }
+
+
     public void doJustOneThing(Data data) {
         if (isValid(data)) {
             doSomethingCleverWithThatData(data);
