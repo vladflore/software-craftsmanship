@@ -854,6 +854,19 @@
             </section>
         </section>
         <section>
+            <h3>Write Tests!</h3>
+            <p>nota bene</p>
+            <ul style="font-size: 25px;">
+                <li class="fragment">TDD can help you increase the number of relevant tests</li>
+                <li class="fragment">more relevant tests => robuster code</li>
+                <li class="fragment">happy paths are not enough</li>
+                <li class="fragment">code coverage is no the ultimate metric</li>
+                <li class="fragment">write tests for the negative case too</li>
+                <li class="fragment">try now and then to switch the actual and result arguments of an assert and see what happens</li>
+                <li class="fragment">try something crazy - mutation testing</li>
+            </ul>
+        </section>
+        <section>
             <h3 style="color: #a9c23f;">Write Tests</h3>
             <div class="twocolumn">
                 <div>
@@ -873,24 +886,20 @@
             </div>
         </section>
         <section>
-            <h3>Write Tests</h3>
-            <p>Lemme see some code...</p>
+            <h3>Write Tests!</h3>
             <pre><code class="java" data-trim data-line-numbers="">
-                //
-                //
-                //
-                //
-                //
-                //
-                //
-                //
-                //
-                //
-                //
-                //
-                //
-                //
-                //
+                @Test
+                public void addMethodShouldSumTheArguments() {
+                    // Arrange
+                    int firstArg = 7;
+                    int secondArg = 7;
+
+                    // Act
+                    int result = calculator.add(firstArg, secondArg);
+
+                    // Assert
+                    assertThat(result).isEqualTo(14);
+                }
             </code></pre>
         </section>
         <section>
